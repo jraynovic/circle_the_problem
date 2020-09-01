@@ -1,12 +1,14 @@
 import React from 'react';
 import { Label,Row,Col, Button, Input,Form, FormGroup, Container } from 'reactstrap';
 import HeaderComponent from './HeaderComponent';
+import FormComponent from './FormComponent';
 function ContactComponent(props){
     return(
         <div>
             <HeaderComponent/>
             <h1>Contact</h1>
-            <Form>
+            <FormComponent/>
+            {/* <Form>
                 <Container>
                     <FormGroup>
                         <Row>
@@ -84,15 +86,9 @@ function ContactComponent(props){
                         <FormGroup>
                         <Button color='primary'>Submit</Button>
                         </FormGroup>
-                    </FormGroup>
-                        
-                    
-
-                    
-                
+                    </FormGroup>          
                 </Container>
-            </Form>
-            
+            </Form> */}
         </div>
         
     )
