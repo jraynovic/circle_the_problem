@@ -6,7 +6,7 @@ import ImageChangeComponent from './ImageChangeComponent'
 import { ACCORDIANTEXT } from '../shared/accordianText'
 import {Link} from 'react-router-dom';
 import AccordianComponent from './AccordianComponent';
-import AccordianBlock from './AcoordianBlock'
+import AccordianBlock from './AccordianBlock'
 
 
 class HomeComponent extends Component{
@@ -72,6 +72,7 @@ class HomeComponent extends Component{
               <div className='row'>
                 <div className='col-md-7 mb-4 mt-4'>
                   {this.RenderAccordian}
+                  {/* <AccordianBlock/> */}
                 </div>
                 <div className='col-md-5 mt-1 mb-4'>
                   <Card className='mt-3 '>

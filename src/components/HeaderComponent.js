@@ -19,15 +19,7 @@ class HeaderComponent extends Component{
         const navStyle = {
             backgroundColor: '#f2a51a'
         };
-        const parralax = {
-            backgroundImage: 'url(/assets/images/traffic.jpg)',
-            height: '250px',
-            backgroundAttachment: 'fixed',
-            backgroundPosition: 'top',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            backgroundPositionY: '-300px',
-        }
+        
         return(
             <div>
                 <React.Fragment>

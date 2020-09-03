@@ -1,140 +1,78 @@
 import React, {Component} from 'react';
 import HeaderComponent from './HeaderComponent';
-import { Card,CardBody,CardHeader,CardTitle, Label,Row,Col,Container, Button, Input,Form, FormGroup } from 'reactstrap';
-import { firstQuestions } from '../shared/questions'
+import { Card,CardBody,CardHeader,Row,Col,Container,} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-class FormsComponent extends Component{
-    constructor(props) {
-        super(props);
-        this.state= {
-            selectionMade : false,
-            step:1,
-            answers: [],
-            firstPage:[],
-            secondPage: [],
-            thirdPage: []
-            
-        }
-    }
-    handleChange = (question,page) =>{
-        let newChange = this.state.answers
-        if(!this.state.answers.includes(question)){
-            newChange.push(question)
-        }else{
-            let index= newChange.indexOf(question);
-            newChange.splice(index,1)
-        } 
-        
-        this.setState({
-            answers: newChange
-        })
-        if(page ===1){
-            this.setState({
-                firstPage:newChange
-            })
-        }else if(page ===2){
-            this.setState({
-                secondPage:newChange
-            })
-        }else if(page===3){
-            this.setState({
-                thirdPage:newChange
-            })
-        }
-        alert(this.state.firstPage)
-    }
-
-    renderForm = () =>{
-        return(
+class FormsComponent extends Component {
+    
+    
+    render() {
+        const styles = {backgroundColor: '#f2a51a'}
+        return (
             <div>
-                {this.renderFormQuestions()}
-                <Button onClick={this.prevHandler} >Prev</Button>
-                <Button onClick={this.nextHandler} color='primary'>Next</Button>
-            </div>
-        )
-    }
-
-    renderFormQuestions = ()=>{
-        if(this.state.step ===1){
-            return(
-                firstQuestions.map(question=>{
-                return(
-                    <div key={question+this.state.step} className='mt-2 mb-4'>
-                        <input className='mr-3' onChange={()=>this.handleChange(question,1)} checked={this.state.answers.includes(question)} value={question} id={question} type='checkbox'/>
-                        <label htmlFor={question}>{question}</label>                     
-                    </div>
-                )
-                
-                })
-            )
-        }
-        if(this.state.step ===2){
-            return(
-                <h1>Step Two</h1>
-            )
-        }
-        if(this.state.step ===3){
-            return(
-                <h1>Step Three</h1>
-            )
-        }
-        
-    }
-    nextHandler = () =>{
-        
-        this.setState({
-            step: this.state.step+1
-        })
-    }
-    prevHandler = () =>{
-        if(this.state.step>1){
-            this.setState({
-                step: this.state.step-1
-        })}
-    }
-   
-   renderSelectionChoice = () =>{
-        // console.log(this.state.selectionMade)
-        if(this.state.selectionMade===false){
-            return(
+                <HeaderComponent/>
+                <Container className='mt-4 mb-4'>
+                <h1>Lets</h1>
+                <h1 className=''>Get Started!</h1>   
                 <Row className='mt-2'>
                     <Col md={6}>
                         <Card>
-                            <CardHeader>
-                                Standard Forms
+                            <CardHeader style={styles} className='text-center'>
+                                <h1>What kind of noise?</h1>
                             </CardHeader>
                             <CardBody>
-                                <form>
-                                {this.renderForm()}
-            
-                                </form>
+                                <Row className=' mt-3 mb-3'>
+                                    <Col sm={6}>
+                                        Select this if you have a vibration
+                                    </Col>
+                                    <Col className='text-right' sm={6}>
+                                        <Link className='btn btn-primary' to= '/forms/Vibrations'>
+                                            Vibrations
+                                        </Link>
+                                    </Col>
+                                </Row>
+                                <hr/>
+                                <Row className=' mt-3 mb-3'>
+                                    <Col sm={6}>
+                                        Select this if you have a noise like a clank, or bang
+                                    </Col>
+                                    <Col className='text-right' sm={6}>
+                                        <Link className='btn btn-primary' to= '/forms/Clanks'>
+                                            Clanks
+                                        </Link>
+                                    </Col>
+                                </Row>
+                                <hr/>
+                                <Row className=' mt-3 mb-3'>
+                                    <Col sm={6}>
+                                        Select this if you have a squeak or a rattle
+                                    </Col>
+                                    <Col className='text-right' sm={6}>
+                                        <Link className='btn btn-primary' to= '/forms/Squeaks and Rattles'>
+                                        Squeaks/Rattle
+                                        </Link>
+                                    </Col>
+                                </Row>
+                                <hr/>
+                                <Row className=' mt-3 mb-3'>
+                                    <Col sm={6}>
+                                        Select this if nothing fits your concern.
+                                    </Col>
+                                    <Col className='text-right' sm={6}>
+                                        <Link className='btn btn-primary' to= '/forms/Something Else'>
+                                            Something Else
+                                        </Link>
+                                    </Col>
+                                </Row>
                             </CardBody>
                         </Card>
                     </Col>
                 </Row>
-            )}else{
-                return(<div></div>)
-            }
-   }
-   
-   
-   
-   
-   render(){
-       return(
-        <React.Fragment>
-            <HeaderComponent/>
-            
-            <Container>
-       <h1>Lets get</h1>
-       <h1 className='ml-4'>started!</h1>
-       {this.renderSelectionChoice()}
-                
-            </Container>
-        
-        </React.Fragment>
-       )
-   }
-
+                </Container>
+            </div>
+        )
+    }
 }
+
 export default FormsComponent;
+   

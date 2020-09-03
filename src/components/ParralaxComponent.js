@@ -12,7 +12,7 @@ export default function ParralaxComponent() {
         backgroundPositionY: '-300px',
     }
     return (
-        <div>
+        <div className='d-none d-md-block'>
             <div style={parralax}>
             <div class="paraBig ml-4 header">
                 <h1 style={{fontSize:'7em'}} className="text-white text-sm-left">Easily Describe</h1>
